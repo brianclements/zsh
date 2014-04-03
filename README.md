@@ -7,4 +7,5 @@ Packaged with [dotfiles][1].
 ## Installation
 
 * Install to dotfiles location
+* symlink the `.zsh` folder itself to `./`
 * symlink `zshenv` and `zshrc` to `~/` as `.zshenv` and `.zshrc`
