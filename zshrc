@@ -1,3 +1,4 @@
+# zsh configuration
 source ~/.zsh/zsh.d/checks.zsh
 source ~/.zsh/zsh.d/colors.zsh
 source ~/.zsh/zsh.d/setopt.zsh
@@ -9,4 +10,12 @@ source ~/.zsh/zsh.d/bindkeys.zsh
 source ~/.zsh/zsh.d/functions.zsh
 source ~/.zsh/zsh.d/history.zsh
 source ~/.zsh/zsh.d/zsh_hooks.zsh
+
+# Z
 source  ${DOTFILES}/z/z.sh
+
+# Tmuxinator
+source ~/.zsh/zsh.d/tmuxinator.zsh
+
+# Ruby
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
