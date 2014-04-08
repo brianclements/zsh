@@ -37,4 +37,4 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export EDITOR="vim"
 
-export DOTFILES=/mnt/local/vhome/brian/dotfiles
+export DOTFILES=$HOME/.dotfiles
