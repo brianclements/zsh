@@ -24,11 +24,10 @@ alias 'bk=cd $OLDPWD'
 # -------------------------------------------------------------------
 # directory information
 # -------------------------------------------------------------------
-alias lh='ls -d .*' # show hidden files/directories only
-alias lsd='ls -aFhlG'
-alias l='ls -al'
-alias ls='ls -GFh' # Colorize output, add file type indicator, and put sizes in human readable format
-alias ll='ls -GFhl' # Same as above, but in long listing format
+
+alias lh='ls -Fd .*' # show hidden files/directories only
+alias ll='ls -Fhal'
+
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 alias 'dus=du -sckx * | sort -nr' #directories sorted by size
 
@@ -141,7 +140,8 @@ alias 'ttop=top -ocpu -R -F -s 2 -n30' # fancy top
 alias 'rm=rm -i' # make rm command (potentially) less destructive
 
 # Force tmux to use 256 colors
-alias tmux='TERM=screen-256color-bce tmux'
+# alias tmux='TERM=screen-256color-bce tmux'
+# alias tmux='tmux -2' #better way
 
 # alias to cat this file to display
 alias acat='< ~/.zsh/aliases.zsh'
@@ -163,24 +163,3 @@ alias 'htaccess=scp /Users/mark/Projects/octopress/zanshin/source/htaccess/.htac
 
 # deploy zanshin.net and move its .htaccess files
 alias 'dz=deploy ; htaccess ;'
-
-# -------------------------------------------------------------------
-# Source: http://aur.archlinux.org/packages/lolbash/lolbash/lolbash.sh
-# -------------------------------------------------------------------
-alias wtf='dmesg'
-alias onoz='cat /var/log/errors.log'
-alias rtfm='man'
-alias visible='echo'
-alias invisible='cat'
-alias moar='more'
-alias icanhas='mkdir'
-alias donotwant='rm'
-alias dowant='cp'
-alias gtfo='mv'
-alias hai='cd'
-alias plz='pwd'
-alias inur='locate'
-alias nomz='ps aux | less'
-alias nomnom='killall'
-alias cya='reboot'
-alias kthxbai='halt'

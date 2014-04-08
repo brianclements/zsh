@@ -1,3 +1,4 @@
+# General #---------------------------------------------
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
@@ -12,6 +13,7 @@ function box_name {
     [ -f ~/.box-name ] && cat ~/.box-name || hostname -s
 }
 
+# Git #---------------------------------------------
 # http://blog.joshdick.net/2012/12/30/my_git_prompt_for_zsh.html
 # copied from https://gist.github.com/4415470
 # Adapted from code found at <https://gist.github.com/1712320>.
@@ -73,7 +75,6 @@ function parse_git_state() {
   fi
  
 }
- 
 
 # If inside a Git repository, print its branch and state
 function git_prompt_string() {
@@ -81,20 +82,47 @@ function git_prompt_string() {
   [ -n "$git_where" ] && echo "on %{$fg[blue]%}${git_where#(refs/heads/|tags/)}$(parse_git_state)"
 }
 
+# Ruby #---------------------------------------------
 # determine Ruby version whether using RVM or rbenv
 # the chpwd_functions line cause this to update only when the directory changes
-function _update_ruby_version() {
-    typeset -g ruby_version=''
-    if which rvm-prompt &> /dev/null; then
-      ruby_version="$(rvm-prompt i v g)"
-    else
-      if which rbenv &> /dev/null; then
-        ruby_version="$(rbenv version | sed -e "s/ (set.*$//")"
-      fi
-    fi
-}
+# function _update_ruby_version() {
+    # typeset -g ruby_version=''
+    # if which rvm-prompt &> /dev/null; then
+      # ruby_version="$(rvm-prompt i v g)"
+    # else
+      # if which rbenv &> /dev/null; then
+        # ruby_version="$(rbenv version | sed -e "s/ (set.*$//")"
+      # fi
+    # fi
+# }
 # chpwd_functions+=(_update_ruby_version)
 
+# ZSH vi mode #---------------------------------------------
+# vim_ins_mode="%{$fg[cyan]%}[INS]%{$reset_color%}"
+vim_ins_mode=""
+vim_cmd_mode="%{$fg_bold[yellow]%}[CMD]%{$reset_color%}"
+vim_mode=$vim_ins_mode
+
+function zle-keymap-select {
+  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+  zle reset-prompt
+}
+zle -N zle-keymap-select
+
+function zle-line-finish {
+  vim_mode=$vim_ins_mode
+}
+zle -N zle-line-finish
+
+# Fix a bug when you C-c in CMD mode and you'd be prompted with CMD mode indicator, while in fact you would be in INS mode
+# Fixed by catching SIGINT (C-c), set vim_mode to INS and then repropagate the SIGINT, so if anything else depends on it, we will not break it
+# Thanks Ron! (see comments)
+function TRAPINT() {
+  vim_mode=$vim_ins_mode
+  return $(( 128 + $1 ))
+}
+
+# Put it all together #---------------------------------------------
 function current_pwd {
   echo $(pwd | sed -e "s,^$HOME,~,")
 }
@@ -105,4 +133,4 @@ $(prompt_char) '
 
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
 
-RPROMPT='${PR_GREEN}$(virtualenv_info)%{$reset_color%} ${PR_RED}${ruby_version}%{$reset_color%}'
+RPROMPT='${PR_GREEN}$(virtualenv_info)%{$reset_color%} ${PR_RED}${ruby_version}%{$reset_color%} ${vim_mode}'
