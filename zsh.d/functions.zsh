@@ -122,3 +122,13 @@ givedef() {
 function mkdircd () {
     mkdir -p "$@" && cd "$@"
 }
+
+# -------------------------------------------------------------------
+# ssh wrapper to update tmux window
+# http://wojtek.ziniewi.cz/2014/03/10/auto-tmux-ssh-hostname-window-title-that-actually-works/
+# -------------------------------------------------------------------
+ssh() {
+    tmux rename-window "$*"
+    command ssh "$@"
+    exit
+}
