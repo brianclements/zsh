@@ -6,7 +6,11 @@ export PATH=$PATH~/usr/local/heroku/bin:/home/brian/bin:/usr/lib/lightdm/lightdm
 # export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
 
 # Setup terminal, and turn on colors
-export TERM=xterm-256color
+if [[ $HAS_FBTERM = 1 ]]; then
+    export TERM=fbterm
+else
+    export TERM=xterm-256color
+fi
 
 # Enable color in grep
 export GREP_OPTIONS='--color=auto'

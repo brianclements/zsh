@@ -18,3 +18,7 @@ fi
 if [[ -x `which yum` ]]; then
     HAS_YUM=1
 fi
+
+if [[ -x `which fbterm` ]]; then
+    HAS_FBTERM=1
+fi
