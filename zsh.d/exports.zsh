@@ -5,12 +5,26 @@ export PATH=$PATH~/usr/local/heroku/bin:/home/brian/bin:/usr/lib/lightdm/lightdm
 # Set default console Java to 1.6
 # export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
 
-# Setup terminal, and turn on colors
-if [[ $HAS_FBTERM = 1 ]]; then
-    export TERM=fbterm
-else
+# Set TERM for various conditions
+case "$TERM" in
+# use fbterm in tty
+linux)
+    if [[ $HAS_FBTERM = 1 ]]; then
+        export TERM=fbterm
+    fi
+    ;;
+# xterm-256color for everything in X
+xterm*|rxvt*)
     export TERM=xterm-256color
-fi
+    ;;
+# zsh keys act strange in tmux when color-256color is set.
+# disabling tmux's preference for TERM until fix is found.
+color-256color)
+    export TERM=xterm-256color
+    ;;
+*)
+    ;;
+esac
 
 # Enable color in grep
 export GREP_OPTIONS='--color=auto'
