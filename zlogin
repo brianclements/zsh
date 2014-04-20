@@ -10,11 +10,9 @@ if [[ -x `which fbterm` ]]; then
     HAS_FBTERM=1
 fi
 
-if [[ $HAS_FBTERM = 1 ]]; then
-    if [[ $(tty|grep -o '/dev/tty') = /dev/tty ]] ; then
-        fbterm
-        exit
-    fi
+if [[ $HAS_FBTERM = 1 ]] && [[ $(tty|grep -o '/dev/tty') = /dev/tty ]]; then
+    fbterm
+    exit
 fi
 
 # Load RVM into a shell session *as a function*
