@@ -30,7 +30,7 @@ bindkey -M viins '^?'    backward-delete-char
 bindkey -M viins '^z'    undo
 bindkey -M viins '^x^r'  redisplay
 bindkey -M viins '^[[1~' beginning-of-line                  # Home
-bindkey -M viins '^[[5~' end-of-line                        # End
+bindkey -M viins '^[[4~' end-of-line                        # End
 bindkey -M viins '^[[3;2~' overwrite-mode                   # Insert
 bindkey -M viins '^[[3~' delete-char                        # Delete
 # bindkey -M viins '^f'    forward-char                       # Ctrl-f
