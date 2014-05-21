@@ -126,9 +126,10 @@ function mkdircd () {
 # -------------------------------------------------------------------
 # ssh wrapper to update tmux window
 # http://wojtek.ziniewi.cz/2014/03/10/auto-tmux-ssh-hostname-window-title-that-actually-works/
+# http://stackoverflow.com/questions/1853946/getting-the-last-argument-passed-to-a-shell-script
 # -------------------------------------------------------------------
 ssh() {
-    tmux rename-window "$*"
+    tmux rename-window "${@: -1}"
     command ssh "$@"
-    exit
+    tmux rename-window "ssh"
 }
