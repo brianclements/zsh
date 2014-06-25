@@ -55,6 +55,18 @@ path() {
 }
 
 # -------------------------------------------------------------------
+# display a neatly formatted python path
+# -------------------------------------------------------------------
+pypath() {
+  echo $PYTHONPATH | tr ":" "\n" | \
+    awk "{ sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
+           sub(\"/bin\",   \"$fg_no_bold[blue]/bin$reset_color\"); \
+           sub(\"/opt\",   \"$fg_no_bold[cyan]/opt$reset_color\"); \
+           sub(\"/sbin\",  \"$fg_no_bold[magenta]/sbin$reset_color\"); \
+           sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
+           print }"
+}
+# -------------------------------------------------------------------
 # Mac specific functions
 # -------------------------------------------------------------------
 if [[ $IS_MAC -eq 1 ]]; then
@@ -132,4 +144,25 @@ ssh() {
     tmux rename-window "${@: -1}"
     command ssh "$@"
     tmux rename-window "ssh"
+}
+
+
+# -------------------------------------------------------------------
+# check if PWD is part of meta project for virtualenvwrapper, change env-vars
+# accordingly if so.
+# http://superuser.com/questions/538877/get-the-parent-directory-for-a-file
+# -------------------------------------------------------------------
+meta_project_check() {
+    if [[ -d .git ]]; then
+        this_folder="${PWD##*/}"
+        parent_path="$(dirname $PWD)"
+        parent_folder="${parent_path##*/}"
+        if [[ "$this_folder" == "$parent_folder" ]]; then
+            export WORKON_HOME="${parent_path}/venv/"
+            export PROJECT_HOME="$(dirname $PWD)"
+        fi
+    else
+        export WORKON_HOME=$HOME/.virtualenvs
+        export PROJECT_HOME=$HOME/dev
+    fi
 }

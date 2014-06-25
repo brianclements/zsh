@@ -125,10 +125,21 @@ alias gu="git shortlog | grep -E '^[^ ]'"
 
 # -------------------------------------------------------------------
 # Python virtualenv 
+# http://blog.doughellmann.com/2010/01/virtualenvwrapper-tips-and-tricks.html
 # -------------------------------------------------------------------
-alias mkenv='mkvirtualenv'
-alias on="workon"
-alias off="deactivate"
+alias v='workon'
+alias v.d='deactivate'
+alias v.mk='mkvirtualenv --no-site-packages'
+alias v.mk_withsitepackages='mkvirtualenv'
+alias v.rm='rmvirtualenv'
+alias v.switch='workon'
+alias v.add2virtualenv='add2virtualenv'
+alias v.cdsitepackages='cdsitepackages'
+alias v.cd='cdvirtualenv'
+alias v.lssitepackages='lssitepackages'
+# run ipython in virtualenv
+# https://coderwall.com/p/xdox9a
+alias v.ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
 # -------------------------------------------------------------------
 # Oddball stuff

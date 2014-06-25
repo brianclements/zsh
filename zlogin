@@ -17,3 +17,7 @@ fi
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Check and set virtualenv env-vars on load for edge cases. All other checks
+# happen when `cd` is run
+meta_project_check

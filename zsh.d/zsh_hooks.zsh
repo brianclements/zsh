@@ -19,3 +19,8 @@ if [[ -n "$GDMSESSION" ]]; then
         set_running_app
     }
 fi
+
+# Change directory hook
+function chpwd() {
+    meta_project_check # update specific env-vars for virtualenvwrapper
+}

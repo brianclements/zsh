@@ -37,22 +37,57 @@ export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
 export EDITOR='subl -w'
 
-#export NODE_PATH=/opt/github/homebrew/lib/node_modules
-#export PYTHONPATH=/usr/local/lib/python2.6/site-packages
-export PYTHONPATH=$HOME/dev:$PYTHONPATH
+# Python envs
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:/usr/local/lib/python2.7/dist-packages:/usr/lib/python2.7/dist-packages:$HOME/dev
+
+# export NODE_PATH=/opt/github/homebrew/lib/node_modules
 # CTAGS Sorting in VIM/Emacs is better behaved with this in place
 export LC_COLLATE=C 
 
-#export GH_ISSUE_CREATE_TOKEN=083f60c674d8eb41f98258df9fc8d94cb733218a
+# Dotfiles location
+export DOTFILES=$HOME/.dotfiles
+
+# export GH_ISSUE_CREATE_TOKEN=083f60c674d8eb41f98258df9fc8d94cb733218a
 
 # Virtual Environment Stuff
-# export WORKON_HOME=$HOME/.virtualenvs
-# export PROJECT_HOME=$HOME/Projects/django
-# source /usr/local/bin/virtualenvwrapper.sh 
+#
+# I don't see the logic in having my venvs in one location. Since they are
+# application specific, I want to package them with my application. I also
+# don't want to hunt them down if I wanted to package them with the source;
+# they will already be there.
+#
+# The below assumes that PWD is the source code directory for a project. I tend
+# to have my project source root inside of a "meta project" folder as such:
+#
+# project_meta_root
+# ├── project_code_repo
+# │   ├── project_code
+# │   ├── dev-tmp
+# │   ├── docs
+# │   ├── scripts
+# │   └── tests
+# ├── project2_code_repo
+# │   ├── project2_code
+# │   ├── dev-tmp
+# │   ├── docs
+# │   ├── scripts
+# │   └── tests
+# ├── venv
+# │   ├── project_venv
+# │   └── project2_venv
+# ├── wiki
+# │   └── data
+# └── www
+#
+# As a backup, sane default values are set when not in a project dir.
+# Per-project checking available in `./functions.zsh`
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/dev
+export VIRTUALENVWRAPPER_HOOK_DIR=$DOTFILES/virtualenvwrapper
+source /usr/local/bin/virtualenvwrapper.sh 
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export EDITOR="vim"
 
-export DOTFILES=$HOME/.dotfiles
