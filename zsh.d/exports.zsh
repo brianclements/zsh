@@ -38,7 +38,7 @@ export PAGER='less'
 export EDITOR='subl -w'
 
 # Python envs
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages:/usr/local/lib/python2.7/dist-packages:/usr/lib/python2.7/dist-packages:$HOME/dev
+export PYTHONPATH=$HOME/dev
 
 # export NODE_PATH=/opt/github/homebrew/lib/node_modules
 # CTAGS Sorting in VIM/Emacs is better behaved with this in place

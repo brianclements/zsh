@@ -127,9 +127,10 @@ alias gu="git shortlog | grep -E '^[^ ]'"
 # Python virtualenv 
 # http://blog.doughellmann.com/2010/01/virtualenvwrapper-tips-and-tricks.html
 # -------------------------------------------------------------------
+alias python='python3'
 alias v='workon'
 alias v.d='deactivate'
-alias v.mk='mkvirtualenv --no-site-packages'
+alias v.mk='mkvirtualenv --python=/usr/bin/python3'
 alias v.mk_withsitepackages='mkvirtualenv'
 alias v.rm='rmvirtualenv'
 alias v.switch='workon'
