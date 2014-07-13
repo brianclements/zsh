@@ -143,6 +143,13 @@ alias v.lssitepackages='lssitepackages'
 alias v.ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
 # -------------------------------------------------------------------
+# Python dev shortcuts
+# -------------------------------------------------------------------
+alias p.run='python -m $(git_project_name)'
+alias p.test='python -m unittest -v'
+alias p.coverage='coverage run --source blacksmith setup.py test && coverage report -m'
+
+# -------------------------------------------------------------------
 # Oddball stuff
 # -------------------------------------------------------------------
 alias 'sloc=/usr/local/sloccount/bin/sloccount'

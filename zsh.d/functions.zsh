@@ -166,3 +166,14 @@ meta_project_check() {
         export PROJECT_HOME=$HOME/dev
     fi
 }
+
+
+# -------------------------------------------------------------------
+# Get name of git project
+# http://stackoverflow.com/questions/15715825/how-do-you-get-git-repos-name-in-some-git-repository
+# -------------------------------------------------------------------
+git_project_name() {
+    if [[ -d .git ]]; then
+        basename `git rev-parse --show-toplevel` 
+    fi
+}
