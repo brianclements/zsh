@@ -17,5 +17,8 @@ source  ${DOTFILES}/z/z.sh
 # Tmuxinator
 source ~/.zsh/zsh.d/tmuxinator.zsh
 
+# Tmuxifier
+eval "$(tmuxifier init -)"
+
 # Ruby
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 

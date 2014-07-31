@@ -91,3 +91,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export EDITOR="vim"
 
+# Tmuxifier
+export PATH="$PATH:$DOTFILES/tmuxifier/bin"
+export TMUXIFIER_LAYOUT_PATH="$DOTFILES/tmuxifier-layouts"

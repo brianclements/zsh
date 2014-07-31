@@ -150,6 +150,20 @@ alias p.test='python -m unittest -v'
 alias p.coverage='coverage run --source blacksmith setup.py test && coverage report -m'
 
 # -------------------------------------------------------------------
+# tmuxifier
+# -------------------------------------------------------------------
+alias t='tmuxifier'
+alias t.s='tmuxifier load-session'
+alias t.w='tmuxifier load-window'
+alias t.l='tmuxifier list'
+alias t.ls='tmuxifier list-sessions'
+alias t.lw='tmuxifier list-windows'
+alias t.ns='tmuxifier new-session'
+alias t.nw='tmuxifier new-window'
+alias t.es='tmuxifier edit-session'
+alias t.ew='tmuxifier edit-window'
+
+# -------------------------------------------------------------------
 # Oddball stuff
 # -------------------------------------------------------------------
 alias 'sloc=/usr/local/sloccount/bin/sloccount'
@@ -165,7 +179,6 @@ alias 'rm=rm -i' # make rm command (potentially) less destructive
 alias acat='< ~/.zsh/aliases.zsh'
 alias fcat='< ~/.zsh/functions.zsh'
 alias sz='source ~/.zshrc'
-
 
 # -------------------------------------------------------------------
 # some Octopress helpers
