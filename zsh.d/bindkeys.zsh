@@ -33,8 +33,8 @@ bindkey -M viins '^[[1~' beginning-of-line                  # Home
 bindkey -M viins '^[[4~' end-of-line                        # End
 bindkey -M viins '^[[3;2~' overwrite-mode                   # Insert
 bindkey -M viins '^[[3~' delete-char                        # Delete
-# bindkey -M viins '^f'    forward-char                       # Ctrl-f
-# bindkey -M viins '^b'    backward-char                      # Ctrl-b
+bindkey -M viins '^[l'    forward-char                       # Ctrl-f
+bindkey -M viins '^[h'    backward-char                      # Ctrl-b
 bindkey -M viins '^d'    delete-char 
 bindkey -M viins ';j;'   vi-cmd-mode                        # escape
 

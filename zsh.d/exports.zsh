@@ -1,6 +1,6 @@
 # Currently this path is appended to dynamically when picking a ruby version
 # zshenv has already started PATH with rbenv so append only here
-export PATH=$PATH~/usr/local/heroku/bin:/home/brian/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/brian/.rvm/bin:/home/brian/.rvm/bin
+export PATH=$PATH~/home/brian/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/brian/.rvm/bin:/home/brian/.rvm/bin
 
 # Set default console Java to 1.6
 # export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
@@ -38,7 +38,7 @@ export PAGER='less'
 export EDITOR='subl -w'
 
 # Python envs
-export PYTHONPATH=$HOME/dev
+export PYTHONPATH=$HOME/dev/lib_projects
 
 # export NODE_PATH=/opt/github/homebrew/lib/node_modules
 # CTAGS Sorting in VIM/Emacs is better behaved with this in place
@@ -87,7 +87,7 @@ export VIRTUALENVWRAPPER_HOOK_DIR=$DOTFILES/virtualenvwrapper
 source /usr/local/bin/virtualenvwrapper.sh 
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$PATH:/usr/local/heroku/bin"
 
 export EDITOR="vim"
 
