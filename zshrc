@@ -14,9 +14,6 @@ source ~/.zsh/zsh.d/zsh_hooks.zsh
 # Z
 source  ${DOTFILES}/z/z.sh
 
-# Tmuxinator
-source ~/.zsh/zsh.d/tmuxinator.zsh
-
 # Tmuxifier
 eval "$(tmuxifier init -)"
 
