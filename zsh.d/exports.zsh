@@ -1,6 +1,9 @@
+# Path
+export PATH=$PATH~/home/brian/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+
 # Currently this path is appended to dynamically when picking a ruby version
 # zshenv has already started PATH with rbenv so append only here
-export PATH=$PATH~/home/brian/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/brian/.rvm/bin:/home/brian/.rvm/bin
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Set default console Java to 1.6
 # export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
