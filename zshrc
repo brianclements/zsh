@@ -16,6 +16,3 @@ source  ${DOTFILES}/z/z.sh
 
 # Tmuxifier
 eval "$(tmuxifier init -)"
-
-# Ruby
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 

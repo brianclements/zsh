@@ -1,9 +1,14 @@
 # Path
-export PATH=$PATH~/home/brian/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+export PATH=/home/brian/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 
-# Currently this path is appended to dynamically when picking a ruby version
-# zshenv has already started PATH with rbenv so append only here
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# Ruby Stuff
+# This is here as a precaution. It's already added to path a million times
+# automatically from a location I can't figure out. So whatevs.
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 
 # Set default console Java to 1.6
 # export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
@@ -90,10 +95,10 @@ export VIRTUALENVWRAPPER_HOOK_DIR=$DOTFILES/virtualenvwrapper
 source /usr/local/bin/virtualenvwrapper.sh 
 
 ### Added by the Heroku Toolbelt
-export PATH="$PATH:/usr/local/heroku/bin"
+export PATH="/usr/local/heroku/bin:$PATH"
 
 export EDITOR="vim"
 
 # Tmuxifier
-export PATH="$PATH:$DOTFILES/tmuxifier/bin"
+export PATH="$DOTFILES/tmuxifier/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$DOTFILES/tmuxifier-layouts"
