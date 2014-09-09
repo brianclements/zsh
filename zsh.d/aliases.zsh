@@ -173,8 +173,16 @@ alias d.rm='c'
 alias d.ls='l'
 
 # -------------------------------------------------------------------
+# docker shortcuts
+# -------------------------------------------------------------------
+alias docker.tmp='docker run -it --rm --name temp radial/distro:us-west-1'
+alias docker.refresh='dk_update_base_images'
+alias docker.admin='start_docker_admin'
+
+# -------------------------------------------------------------------
 # Oddball stuff
 # -------------------------------------------------------------------
+alias rm_key='rm_known_host_key'
 alias 'sloc=/usr/local/sloccount/bin/sloccount'
 alias 'adventure=emacs -batch -l dunnet' # play adventure in the console
 alias 'ttop=top -ocpu -R -F -s 2 -n30' # fancy top

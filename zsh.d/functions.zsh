@@ -180,3 +180,29 @@ git_project_name() {
         basename `git rev-parse --show-toplevel` 
     fi
 }
+
+# -------------------------------------------------------------------
+# Pull/refresh frequently used base docker images
+# -------------------------------------------------------------------
+dk_update_base_images() {
+    docker pull radial/distro:us-west-1 &
+    docker pull radial/axle-base &
+    docker pull radial/hub-base &
+    docker pull radial/spoke-base &
+}
+
+# -------------------------------------------------------------------
+# Quickly remove offending key in known_hosts
+# -------------------------------------------------------------------
+
+rm_known_host_key() {
+    sed -i "$1"d $HOME/.ssh/known_hosts
+}
+
+# -------------------------------------------------------------------
+# Quickly start docker admin container
+# -------------------------------------------------------------------
+
+start_docker_admin() {
+    docker run -it --volumes-from ${1}_hub_1 --name ${1}_admin radial/distro:us-west-1
+}
