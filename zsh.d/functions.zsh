@@ -189,6 +189,11 @@ dk_update_base_images() {
     docker pull radial/axle-base &
     docker pull radial/hub-base &
     docker pull radial/spoke-base &
+    add=("$@")
+
+    for i in "${add[@]}"; do
+        docker pull "${i}" &
+    done
 }
 
 # -------------------------------------------------------------------
@@ -204,5 +209,7 @@ rm_known_host_key() {
 # -------------------------------------------------------------------
 
 start_docker_admin() {
-    docker run -it --volumes-from ${1}_hub_1 --name ${1}_admin radial/distro:us-west-1
+    args=("$@")
+    cmmds=("${args[@]:1}")
+    docker run -it --rm --volumes-from "${args[1]}"_hub_1 --name "${args[1]}"_admin radial/admin "$cmmds"
 }
