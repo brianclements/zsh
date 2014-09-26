@@ -92,7 +92,9 @@ export DOTFILES=$HOME/.dotfiles
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
 export VIRTUALENVWRAPPER_HOOK_DIR=$DOTFILES/virtualenvwrapper
-source /usr/local/bin/virtualenvwrapper.sh 
+if [[ -a /usr/local/bin/virtualenvwrapper.sh ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh 
+fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
