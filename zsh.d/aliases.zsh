@@ -152,7 +152,8 @@ alias p.coverage='coverage run --source blacksmith setup.py test && coverage rep
 # -------------------------------------------------------------------
 # tmuxifier
 # -------------------------------------------------------------------
-alias t='tmuxifier'
+alias t='tmux'
+alias t.a='tmux a -t'
 alias t.s='tmuxifier load-session'
 alias t.w='tmuxifier load-window'
 alias t.l='tmuxifier list'
