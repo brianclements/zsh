@@ -91,6 +91,7 @@ export DOTFILES=$HOME/.dotfiles
 # Per-project checking available in `./functions.zsh`
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_HOOK_DIR=$DOTFILES/virtualenvwrapper
 if [[ -a /usr/local/bin/virtualenvwrapper.sh ]]; then
     source /usr/local/bin/virtualenvwrapper.sh 
