@@ -105,3 +105,6 @@ export EDITOR="vim"
 # Tmuxifier
 export PATH="$DOTFILES/tmuxifier/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$DOTFILES/tmuxifier-layouts"
+
+# fig/Docker
+export DOCKER_HOST="tcp://localhost:2375"
