@@ -185,15 +185,22 @@ git_project_name() {
 # Pull/refresh frequently used base docker images
 # -------------------------------------------------------------------
 dk_update_base_images() {
-    docker pull radial/distro:us-west-1 &
-    docker pull radial/axle-base &
-    docker pull radial/hub-base &
-    docker pull radial/spoke-base &
-    add=("$@")
-
-    for i in "${add[@]}"; do
-        docker pull "${i}" &
-    done
+    do_update() {
+        if ! $(/usr/bin/touch /var/run/docker.sock 2> /dev/null); then
+            sudo true
+            for i in "${iList[@]}"; do
+                sudo docker pull "${i}" &
+            done
+        else
+            for i in "${iList[@]}"; do
+                docker pull "${i}" &
+            done
+        fi
+    }
+    iList=("radial/distro:us-west-1" "radial/axle-base" "radial/hub-base" "radial/spoke-base" "radial/admin")
+    do_update
+    iList=("$@")
+    do_update
 }
 
 # -------------------------------------------------------------------
