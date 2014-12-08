@@ -29,6 +29,8 @@ xterm*|rxvt*)
 # disabling tmux's preference for TERM until fix is found.
 color-256color)
     export TERM=xterm-256color
+    # This is for vim to know we're in tty>fbterm>tmux
+    export FBTERM=1
     ;;
 *)
     ;;
