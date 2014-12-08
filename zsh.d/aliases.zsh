@@ -189,9 +189,7 @@ alias 'adventure=emacs -batch -l dunnet' # play adventure in the console
 alias 'ttop=top -ocpu -R -F -s 2 -n30' # fancy top
 alias 'rm=rm -i' # make rm command (potentially) less destructive
 
-# Force tmux to use 256 colors
-# alias tmux='TERM=screen-256color-bce tmux'
-# alias tmux='tmux -2' #better way
+alias irssi='TERM=screen-256color irssi'
 
 # alias to cat this file to display
 alias acat='< ~/.zsh/aliases.zsh'
