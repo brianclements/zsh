@@ -19,6 +19,7 @@ case "$TERM" in
 linux)
     if [[ $HAS_FBTERM = 1 ]]; then
         export TERM=fbterm
+        export FBTERM=1
     fi
     ;;
 # xterm-256color for everything in X
@@ -30,7 +31,9 @@ xterm*|rxvt*)
 color-256color)
     export TERM=xterm-256color
     # This is for vim to know we're in tty>fbterm>tmux
-    export FBTERM=1
+    if [[ $IN_TTY = 1 ]]; then
+        export FBTERM=1
+    fi
     ;;
 *)
     ;;

@@ -22,3 +22,7 @@ fi
 if [[ -x `which fbterm` ]]; then
     HAS_FBTERM=1
 fi
+
+if [[ $(tty|grep -o '/dev/tty') = /dev/tty ]]; then
+    IN_TTY=1
+fi
