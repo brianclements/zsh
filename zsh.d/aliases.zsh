@@ -176,7 +176,7 @@ alias d.ls='l'
 # -------------------------------------------------------------------
 # docker shortcuts
 # -------------------------------------------------------------------
-alias docker.tmp='docker run -it --rm --name temp radial/distro:us-west-1'
+alias docker.tmp='docker run -it --rm radial/distro:us-west-1'
 alias docker.refresh='dk_update_base_images'
 alias docker.admin='start_docker_admin'
 
