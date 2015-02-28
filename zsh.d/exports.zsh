@@ -25,6 +25,7 @@ linux)
 # xterm-256color for everything in X
 xterm*|rxvt*)
     export TERM=xterm-256color
+    export SHELL=/usr/bin/zsh
     ;;
 # zsh keys act strange in tmux when color-256color is set.
 # disabling tmux's preference for TERM until fix is found.
