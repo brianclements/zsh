@@ -8,17 +8,17 @@ function precmd {
 }
 
 # Ignore this in tty, it copies the input to output, enabled it just in X
-if [[ -n "$GDMSESSION" ]]; then
-    function set_running_app {
-        printf "\e]1; $PWD:t:$(history $HISTCMD | cut -b7- ) \a"
-    }
-    function preexec {
-        set_running_app
-    }
-    function postexec {
-        set_running_app
-    }
-fi
+# if [[ -n "$GDMSESSION" ]]; then
+    # function set_running_app {
+        # printf "\e]1; $PWD:t:$(history $HISTCMD | cut -b7- ) \a"
+    # }
+    # function preexec {
+        # set_running_app
+    # }
+    # function postexec {
+        # set_running_app
+    # }
+# fi
 
 # Change directory hook
 function chpwd() {
