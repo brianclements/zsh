@@ -113,3 +113,6 @@ export TMUXIFIER_LAYOUT_PATH="$DOTFILES/tmuxifier-layouts"
 
 # fig/Docker
 export DOCKER_HOST="tcp://localhost:2375"
+
+# Android Studio/JetBrains
+export IBUS_ENABLE_SYNC_MODE=1
