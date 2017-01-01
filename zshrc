@@ -1,4 +1,5 @@
 # zsh configuration
+source ~/.zsh/zsh.d/functions.zsh
 source ~/.zsh/zsh.d/checks.zsh
 source ~/.zsh/zsh.d/colors.zsh
 source ~/.zsh/zsh.d/setopt.zsh
@@ -7,7 +8,6 @@ source ~/.zsh/zsh.d/prompt.zsh
 source ~/.zsh/zsh.d/completion.zsh
 source ~/.zsh/zsh.d/aliases.zsh
 source ~/.zsh/zsh.d/bindkeys.zsh
-source ~/.zsh/zsh.d/functions.zsh
 source ~/.zsh/zsh.d/history.zsh
 source ~/.zsh/zsh.d/zsh_hooks.zsh
 

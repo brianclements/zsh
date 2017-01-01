@@ -139,11 +139,24 @@ function mkdircd () {
 }
 
 # -------------------------------------------------------------------
+# check for truecrypt mounts
+# -------------------------------------------------------------------
+tc_is_mounted() {
+    if [[ -d /media/truecrypt1 ]]; then
+        true
+    else 
+        echo "Warning: no truecrypt mounts detected"
+        false
+    fi
+}
+
+# -------------------------------------------------------------------
 # ssh wrapper to update tmux window
 # http://wojtek.ziniewi.cz/2014/03/10/auto-tmux-ssh-hostname-window-title-that-actually-works/
 # http://stackoverflow.com/questions/1853946/getting-the-last-argument-passed-to-a-shell-script
 # -------------------------------------------------------------------
 ssh() {
+    tc_is_mounted
     tmux rename-window "${@: -1}"
     command ssh "$@"
     tmux rename-window "ssh"

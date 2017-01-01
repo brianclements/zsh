@@ -26,3 +26,6 @@ fi
 if [[ $(tty|grep -o '/dev/tty') = /dev/tty ]]; then
     IN_TTY=1
 fi
+
+# Check for truecrypt mounts
+tc_is_mounted
