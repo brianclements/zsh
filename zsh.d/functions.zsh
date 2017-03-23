@@ -142,7 +142,8 @@ function mkdircd () {
 # check for truecrypt mounts
 # -------------------------------------------------------------------
 tc_is_mounted() {
-    if [[ -d /media/truecrypt1 ]]; then
+    local tc_mnt_test=$(mount | grep truecrypt 2>&1 >> /dev/null; echo $?)
+    if [[ $tc_mnt_test == 0 ]]; then
         true
     else 
         echo "Warning: no truecrypt mounts detected"
