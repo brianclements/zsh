@@ -116,3 +116,9 @@ export DOCKER_HOST="tcp://localhost:2375"
 
 # Android Studio/JetBrains
 export IBUS_ENABLE_SYNC_MODE=1
+
+# Systemd tmux.service fixes
+# These don't get set when systemd starts tmux outside of X (i.e. on startup)
+# and cause some terminal programs to not use gui interfaces
+export DISPLAY=:0
+export XAUTHORITY=/home/brian/.Xauthority
