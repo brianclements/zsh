@@ -28,4 +28,4 @@ if [[ $(tty|grep -o '/dev/tty') = /dev/tty ]]; then
 fi
 
 # Check for truecrypt mounts
-tc_is_mounted
+crypt_is_mounted

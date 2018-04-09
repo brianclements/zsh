@@ -141,12 +141,12 @@ function mkdircd () {
 # -------------------------------------------------------------------
 # check for truecrypt mounts
 # -------------------------------------------------------------------
-tc_is_mounted() {
-    local tc_mnt_test=$(mount | grep truecrypt 2>&1 >> /dev/null; echo $?)
-    if [[ $tc_mnt_test == 0 ]]; then
+crypt_is_mounted() {
+    local crypt_mnt_test=$(mount | grep crypt 2>&1 >> /dev/null; echo $?)
+    if [[ $crypt_mnt_test == 0 ]]; then
         true
     else 
-        echo "Warning: no truecrypt mounts detected"
+        echo "Warning: no encrypted volumes are mounted"
         false
     fi
 }
@@ -157,7 +157,7 @@ tc_is_mounted() {
 # http://stackoverflow.com/questions/1853946/getting-the-last-argument-passed-to-a-shell-script
 # -------------------------------------------------------------------
 ssh() {
-    tc_is_mounted
+    crypt_is_mounted
     tmux rename-window "${@: -1}"
     command ssh "$@"
     tmux rename-window "ssh"
